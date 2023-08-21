@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  adonis_app:
+    container_name: adonis_app
+    restart: always
+    build:
+      context: .
+      target: dependencies
+    ports:
+      - ${PORT}:${PORT}
+      - 9229:9229
+    env_file:
+      - .env
+    volumes:
+      - ./:/home/node/app
+      # Uncomment the below line if you dome/joao/Documentoseveloping on MacOS
+      #- /home/node/app/node_modules
+    command: dumb-init node ace serve --watch --node-args="--inspect=0.0.0.0"
+    networks:
+      - minha-rede
+  db:
+     image: postgres
+     restart: always
+     environment:
+       POSTGRES_PASSWORD: secret123
+       POSTGRES_USER: bhayron
+       POSTGRES_DB: sistema
+     expose:
+       - "5432"
+     ports:
+       - 5432:5432
+     networks:
+       - minha-rede
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+networks:
+   minha-rede:
+    driver: bridge

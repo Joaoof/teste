@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: adonis-kub-projeto
+data:
+  # PORT: '3333'
+  # HOST: '0.0.0.0'
+  # DRIVE_DISK: local
+  # DB_CONNECTION: pg
+  POSTGRES_PORT: '5432'
+  POSTGRES_HOST: '0.0.0.0'
+  POSTGRES_USER: bhayron
+  POSTGRES_PASSWORD: secret123
+  POSTGRES_DB_NAME: sistema
+  NODE_ENV: development
+  APP_KEY: WryRbf4T2p7FvwxiPHgJVsQ8JEHZX-Vs
+

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adonis-kub-projeto
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adonis-kub-projeto
+  template:
+    metadata:
+      labels:
+        app: adonis-kub-projeto
+    spec:
+      containers:
+        - name: adonis-kub-projeto
+          image: joaoof/adonis-kub-projeto:latest
+        - name: postgres
+          image: postgres
+          env:
+            - name: POSTGRES_USER
+              value: bhayron
+            - name: POSTGRES_PASSWORD
+              value: secret123
+            - name: POSTGRES_DB
+              value: sistema
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: adonis-kub-projeto

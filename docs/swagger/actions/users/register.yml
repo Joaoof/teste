@@ -1,0 +1,38 @@
+/users:
+  post:
+    tags:
+      - Register User
+    security:
+      - BearerAuth: []
+    description: Criar usuário
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            properties:
+              gener:
+                type: string
+                example: 'male'
+                required: true
+              username:
+                type: string
+                example: 'mister_good'
+                required: true
+              email:
+                type: string
+                example: 'jo@mail.com'
+                required: true
+              password:
+                type: string
+                example: '12345678'
+                required: true
+    produces:
+      - application/json
+    responses:
+      201:
+        description: Sucess
+      401:
+        description: UnauthorizedError
+      422:
+        description: Invalid

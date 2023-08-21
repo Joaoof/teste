@@ -1,0 +1,46 @@
+/users/{id}:
+  put:
+    tags:
+      - Update User
+    security:
+      - BearerAuth: []
+    description: Update User by id
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          example: 1
+        required: true
+        description: ID user for search
+
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                type: number
+                example: '1'
+                required: true
+              email:
+                type: string
+                example: 'João@gmail.com'
+                required: true
+              password:
+                type: string
+                example: '123345'
+                required: true
+
+
+
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Sucess
+      401:
+        description: UnauthorizedError
+      422:
+        description: Invalid
