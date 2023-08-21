@@ -44,8 +44,6 @@ test.group('Password', (group) => {
         resetPasswordUrl: 'url',
       })
       .expect(204)
-
-      ckcpdokf
     const tokens = await user.related('tokens').query()
     console.log({ tokens })
     assert.isNotEmpty(tokens)
