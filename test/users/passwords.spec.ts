@@ -45,6 +45,7 @@ test.group('Password', (group) => {
       })
       .expect(204)
 
+      ckcpdokf
     const tokens = await user.related('tokens').query()
     console.log({ tokens })
     assert.isNotEmpty(tokens)
