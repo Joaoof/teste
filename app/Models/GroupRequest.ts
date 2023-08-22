@@ -10,21 +10,20 @@ export default class GroupRequest extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column({columnName: 'user_id'})
+  @column({columnName: 'user_id', serializeAs: 'userId'})
   public userId: number
 
   @belongsTo(() => User, {
-     foreignKey: 'user_id',
+     foreignKey: 'userId',
   })
   public user: BelongsTo<typeof User>
 
-  @column({columnName: 'group_id'})
+  @column({columnName: 'group_id', serializeAs: 'groupId'})
   public groupId: number
 
   @belongsTo(() => Group, {
-    foreignKey: 'group_id',
+    foreignKey: 'groupId',
  })
-
   public group: BelongsTo<typeof Group>
 
   @column()
