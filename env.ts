@@ -28,9 +28,9 @@ export default Env.rules({
   SMTP_PASSWORD: Env.schema.string(),
 
   DB_CONNECTION: Env.schema.string(),
-  PG_HOST: Env.schema.string({ format: 'host' }),
-  PG_PORT: Env.schema.number(),
-  PG_USER: Env.schema.string(),
-  PG_PASSWORD: Env.schema.string.optional(),
-  PG_DB_NAME: Env.schema.string(),
+  // PG_HOST: Env.schema.string({ format: 'host' }),
+  // PG_PORT: Env.schema.number(),
+  // PG_USER: Env.schema.string(),
+  // PG_PASSWORD: Env.schema.string.optional(),
+  // PG_DB_NAME: Env.schema.string(),
 })
