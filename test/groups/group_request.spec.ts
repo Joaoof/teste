@@ -51,6 +51,10 @@ test.group('Group Request', (group) => {
     assert.equal(body.status, 422)
   })
 
+  test('it should list group requests by master', async (assert)) => {
+    
+  }
+
   group.before(async () => {
     const plainPassword = 'test'
     const newUser = await UserFactory.merge({
