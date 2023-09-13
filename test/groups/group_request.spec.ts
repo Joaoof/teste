@@ -51,9 +51,11 @@ test.group('Group Request', (group) => {
     assert.equal(body.status, 422)
   })
 
-  test('it should list group requests by master', async (assert)) => {
-    
-  }
+  test.only('it should list group requests by master', async (assert) => {
+    const master = await UserFactory.create()
+    const group = await GroupFactory.merge({master: master.id}).create( )
+    await supertest(BASE_URL).get(`/groups/${group.id}/requests?master=${master.id}`).expect(200)
+  })
 
   group.before(async () => {
     const plainPassword = 'test'
@@ -83,3 +85,7 @@ test.group('Group Request', (group) => {
     await Database.rollbackGlobalTransaction()
   })
 })
+function async(assert: any): any {
+  throw new Error("Function not implemented.")
+}
+

@@ -6,6 +6,9 @@ import GroupRequest from 'App/Models/GroupRequest';
 
 
 export default class GroupRequestsController {
+  public async index({request, response}: HttpContextContract) {
+    return response.ok({})
+  }
   public async store({ request, response, auth }: HttpContextContract) {
     const groupId = request.param('groupId') as number
     const userId = auth.user!.id
